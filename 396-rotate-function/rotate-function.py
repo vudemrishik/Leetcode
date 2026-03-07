@@ -1,11 +1,12 @@
 class Solution:
     def maxRotateFunction(self, nums: List[int]) -> int:
+        l=len(nums)
         total = 0
         f = 0
         total = sum(nums)
-        f = sum([i*nums[i] for i in range(len(nums))])
+        f = sum([i*nums[i] for i in range(l)])
         res = f
-        for i in range(1, len(nums)):
-            f += total - (len(nums))*nums[len(nums)-i]
+        for i in range(1, l):
+            f += total - (l)*nums[l-i]
             res = max(res, f)
         return res
